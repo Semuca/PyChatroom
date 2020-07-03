@@ -5,6 +5,7 @@ import threading
 from tkinter import *
 
 root = Tk()
+root.title("Chatroom")
 root.geometry("800x450+0+0")
 root.minsize(200, 55)
 
@@ -14,7 +15,11 @@ baseIP = socket.gethostbyname_ex(socket.gethostname())[-1]
 port = 7000
 headerLength = 10
 
-chat = Label(root, text = history, justify = LEFT, anchor = SW, bg = "black", fg = "white", font = "Helvetica 12")
+main = Frame(root, bg = "black")
+main.pack(fill = BOTH, expand = True)
+main.pack_propagate(False)
+
+chat = Label(main, text = history, justify = LEFT, anchor = SW, bg = "black", fg = "white", font = "Helvetica 12")
 chat.pack(expand = True, fill = BOTH)
 
 entryText = StringVar()
